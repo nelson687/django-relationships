@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from authentication.admin import PetUserAdmin
 
 from .compat import User
 from .forms import RelationshipStatusAdminForm
@@ -13,7 +13,7 @@ class RelationshipInline(admin.TabularInline):
     fk_name = 'from_user'
 
 
-class UserRelationshipAdmin(UserAdmin):
+class UserRelationshipAdmin(PetUserAdmin):
     inlines = (RelationshipInline,)
 
 

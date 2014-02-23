@@ -14,7 +14,7 @@ from .models import RelationshipStatus
 
 @login_required
 def relationship_redirect(request):
-    return HttpResponseRedirect(reverse('relationship_list', args=[request.user.username]))
+    return HttpResponseRedirect(reverse('relationship_list', args=[request.user.get_username()]))
 
 
 def _relationship_list(request, queryset, template_name=None, *args, **kwargs):

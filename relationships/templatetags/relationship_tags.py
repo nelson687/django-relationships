@@ -88,7 +88,7 @@ def add_relationship_url(user, status):
     """
     if isinstance(status, RelationshipStatus):
         status = status.from_slug
-    return reverse('relationship_add', args=[user.username, status])
+    return reverse('relationship_add', args=[user.get_username(), status])
 
 
 @register.filter
@@ -104,7 +104,7 @@ def remove_relationship_url(user, status):
     """
     if isinstance(status, RelationshipStatus):
         status = status.from_slug
-    return reverse('relationship_remove', args=[user.username, status])
+    return reverse('relationship_remove', args=[user.get_username(), status])
 
 
 def positive_filter_decorator(func):
